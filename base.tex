@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2020.12.29
-% Version               :   3.2
+% Last modification     :   2021.03.13
+% Version               :   3.4
 %
 %------------------------------------------------------------------------
 
@@ -90,6 +90,9 @@
 \newcommand{\lm}[2][{}]{\lim\limits_{\substack{#2 \\ #1}}} %$\lm{x \to a} f$ or $\lm[x < a]{x \to a} f$
 \newcommand{\Lm}[3][{}]{\lm[#1]{#2} \left( #3 \right)} %$\Lm{x \to a}{f}$ or $\Lm[x < a]{x \to a}{f}$
 
+%-Integral
+\newcommand{\dint}[4][x]{\displaystyle \int_{#2}^{#3} #4 \mathrm{d} #1} %$\dint{a}{b}{f(x)}$ or $\dint[t]{a}{b}{f(t)}$
+
 %-Others
 \newcommand{\trig}[2]{#1 \left( #2 \right)} %$\trig{\sin}{\dfrac a b}$
 \newcommand{\para}{\ /\!/\ } %//
@@ -101,6 +104,7 @@
 \newcommand{\Circ}[2]{\mathscr{C}_{#1, #2}}
 
 \newcommand{\lr}[1]{\left( #1 \right)}
+\newcommand{\lrb}[1]{\left[ #1 \right]}
 
 
 %------commands
