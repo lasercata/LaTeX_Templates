@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2022.10.16
-% Version               :   v5.2
+% Last modification     :   2022.10.28
+% Version               :   v5.3
 %
 %------------------------------------------------------------------------
 
@@ -112,13 +112,13 @@
 %\SetProgArgSty{texttt}
 
 \newenvironment{indalgo}[2][H]{
-    \begin{minipage}{\linewidth-\leftskip-5pt}
+    \begin{algoBox}
         \begin{algorithm}[#1]
             \caption{#2}
 }
 {
         \end{algorithm}
-    \end{minipage}
+    \end{algoBox}
 }
 
 
@@ -137,6 +137,22 @@
     colframe=#1,
     colback=#2,
     enlarge left by=10pt,
+    width=\linewidth-\leftskip-10pt,
+}
+
+\DeclareTColorBox{algoBox}{O{black}O{lightwhite}}{
+    breakable,
+    arc=0pt,
+    top=0pt,
+    toprule=-.5pt,
+    right=0pt,
+    rightrule=-.5pt,
+    bottom=0pt,
+    bottomrule=-.5pt,
+    left=0pt,
+    leftrule=-.5pt,
+    colframe=#1,
+    colback=#2,
     width=\linewidth-\leftskip-10pt,
 }
 
