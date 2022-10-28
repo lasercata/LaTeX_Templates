@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2022.04.18
-% Version               :   v4.7
+% Last modification     :   2022.09.03
+% Version               :   v4.8
 %
 %------------------------------------------------------------------------
 
@@ -234,12 +234,38 @@
 %---title
 \newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\emph{#1} :}} {\Large #2}}\end{center}}
 
+%---Maths environments
+%-Proofs
+\newenvironment{proof}[1][{}]{\begin{indt}{$\square$ #1}}{$\blacksquare$ \end{indt}}
+
+%-Maths parts (proposition, definition, ...)
+\newenvironment{mathspart}[1]{\begin{indt}{\boxed{\text{\textbf{#1}}}}}{\end{indt}}
+\newenvironment{mathbox}[1]{\boxed{\text{\textbf{#1}}}\begin{pseudocode}}{\end{pseudocode}}
+\newenvironment{mathul}[1]{\begin{indt}{\underline{\textbf{#1}}}}{\end{indt}}
+
+\newenvironment{theo}{\begin{mathspart}{Théorème}}{\end{mathspart}}
+\newenvironment{Theo}{\begin{mathbox}{Théorème}}{\end{mathbox}}
+\newenvironment{theodef}{\begin{mathspart}{Théorème-définition}}{\end{mathspart}}
+
+\newenvironment{prop}{\begin{mathspart}{Proposition}}{\end{mathspart}}
+\newenvironment{Prop}{\begin{mathbox}{Proposition}}{\end{mathbox}}
+\newenvironment{props}{\begin{mathspart}{Propriétés}}{\end{mathspart}}
+
+\newenvironment{defi}{\begin{mathspart}{Définition}}{\end{mathspart}}
+\newenvironment{meth}{\begin{mathspart}{Méthode}}{\end{mathspart}}
+
+\newenvironment{Rq}{\begin{mathul}{Remarque :}}{\end{mathul}}
+\newenvironment{Rqs}{\begin{mathul}{Remarques :}}{\end{mathul}}
+
+\newenvironment{Ex}{\begin{mathul}{Exemple :}}{\end{mathul}}
+\newenvironment{Exs}{\begin{mathul}{Exemples :}}{\end{mathul}}
+
 
 %------Sections
 % To change section numbering :
 % \renewcommand\thesection{\Roman{section}}
-% \renewcommand\thesubsection{\arabic{subsection}}
-% \renewcommand\thesubsubsection{\textit \alph{subsubsection}}
+% \renewcommand\thesubsection{\arabic{subsection})}
+% \renewcommand\thesubsubsection{\textit \alph{subsubsection})}
 
 % To start numbering from 0
 % \setcounter{section}{-1}
@@ -276,16 +302,14 @@
     % \pagecolor{black}
     % \color{white}
     
-    \thetitle{Title}{This is the title}
+    \thetitle{}{}
     
     %\tableofcontents
     %\newpage
     
     
-    \begin{indt}{\section{First part :}}
-        
+    \begin{indt}{\section{}}
         .a
-        
     \end{indt}
     
     
