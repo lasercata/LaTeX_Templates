@@ -1,33 +1,77 @@
 \documentclass[a4paper, 12pt, twoside]{article}
 
+
+%------ini
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 %\usepackage[french]{babel}
 %\usepackage[english]{babel}
 
-%---geometry
+
+%---------geometry
 \usepackage[textheight=700pt, textwidth=500pt]{geometry}
 
-%---pictures
-\usepackage{graphicx}
 
-%---math
+%------pictures
+\usepackage{graphicx}
+%\usepackage{wrapfig}
+
+
+%------math
+%---packages
 %\usepackage{textcomp}
 %\usepackage{amsmath}
+%\usepackage{amssymb}
+\usepackage{mathtools} % For abs
 
-%---tabular
+%---commands
+\newcommand{\R}{\mathbb{R}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} % abs{x} -> |x|
+
+
+%------tabular
 %\usepackage{color}
 %\usepackage{colortbl}
 %\usepackage{multirow}
 
-%---color
+
+%------color
 \usepackage{xcolor}
 \definecolor{ff4500}{HTML}{ff4500}
 \definecolor{00f}{HTML}{0000ff}
+\definecolor{656565}{HTML}{656565}
 
 \renewcommand{\emph}{\textcolor{ff4500}}
+\renewcommand{\em}{\color{ff4500}}
 
-%---page style
+\newcommand{\strong}[1]{\textcolor{ff4500}{\bf #1}}
+\newcommand{\st}{\color{ff4500}\bf}
+
+
+%------commands
+%---to quote french text
+\newcommand{\quo}[1]{\guillemotleft{} \textcolor{656565}{\it #1} \guillemotright}
+
+%---to indent
+\newcommand{\ind}[1][20pt]{\advance\leftskip + #1}
+\newcommand{\deind}[1][20pt]{\advance\leftskip - #1}
+
+%---to indent a text
+\newcommand{\indented}[2][20pt]{\par \ind[#1] #2 \par \deind[#1]}
+\newenvironment{indentedenv}[1][20pt]{\par \ind[#1]}{\par \deind}
+
+%---title
+\newcommand{\thetitle}[2]{\begin{center}\textbf{{\Large \underline{\emph{#1} :}} {\large #2}}\end{center}}
+
+%-I
+\newcommand{\mainpart}[2]{\underline{\large \textbf{\emph{\textit{#1)} #2}}}}
+%-A
+\newcommand{\subpart}[2]{.\underline{\bf \textit{#1)} #2}}
+%-1
+\newcommand{\subsubpart}[2]{.\underline{\sl #1) #2}}
+
+
+%------page style
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 
@@ -43,13 +87,27 @@
 \fancyfoot[RO, LE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
 
 
+%------init lengths
+\setlength{\parindent}{0pt} %no \noindent needed !!!
+\setlength{\parskip}{3pt}
 
+
+%-----------------------------------Begin Document
 \begin{document}
-    \setlength{\parskip}{3pt}
 
-    \begin{center}\textbf{{\Large \underline{\emph{Titre} :}} {\large Voici le titre}}\end{center}
- 
-    \newpage
+    \thetitle{Titre}{Voici le titre}
+    
+    
+%     \mainpart{I}{Main part}
+%     
+%     	\ind
+%     	\subpart{A}{sub part}
+%     	
+%     		\ind
+%     		\subsubpart{1}{sub sub part}
+
+    
     .Aa
     
 \end{document}
+%--------------------------------------------End
