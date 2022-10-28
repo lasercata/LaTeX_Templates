@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some usefull commands and environment.
 %
 % Author                :   Lasercata
-% Last modification     :   2020.06.14
-% Version               :   3.0
+% Last modification     :   2020.10.12
+% Version               :   3.1
 %
 %------------------------------------------------------------------------
 
@@ -53,9 +53,14 @@
 %\usepackage{amsmath}
 %\usepackage{amssymb}
 \usepackage{mathtools} % For abs
+%\usepackage{mathrsfs} %\mathscr{C} -> better than \marthcal
 
 %---commands
 \newcommand{\R}{\mathbb{R}} %set R
+\newcommand{\N}{\mathbb{N}} %set N
+\newcommand{\e}[1]{\mathrm{e}^{#1}} %exponantial function
+\newcommand{\ex}{\e{x}}
+\newcommand{\ssi}{\ \Leftrightarrow \ }
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % abs{x} -> |x|
 \newcommand{\vect}{\overrightarrow}
 \newcommand{\veco}[3]{\displaystyle \vec{#1}\binom{#2}{#3}} %vector + coord
@@ -113,8 +118,8 @@
 \fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
 
 \fancyfoot[RO, LE]{\textit{\texttt{Page \thepage /\pageref{LastPage}}}}
-\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/mieux/lasercata_logo_fly_fond_blanc.png}}
-%\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
+%\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/mieux/lasercata_logo_fly_fond_blanc.png}}
+\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
 
 
 %------init lengths
