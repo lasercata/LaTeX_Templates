@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2021.10.24
-% Version               :   v4.1
+% Last modification     :   2021.12.20
+% Version               :   v4.2
 %
 %------------------------------------------------------------------------
 
@@ -138,6 +138,8 @@
 %---Commands
 %-Sets
 \newcommand{\N}{\mathbb{N}} %set N
+\newcommand{\Z}{\mathbb{Z}} %set Z
+\newcommand{\Q}{\mathbb{Q}} %set Q
 \newcommand{\R}{\mathbb{R}} %set R
 \newcommand{\C}{\mathbb{C}} %set C
 \newcommand{\U}{\mathbb{U}} %set U
@@ -145,8 +147,7 @@
 \newcommand{\nset}[2]{\left\llbracket #1\ ;\ #2 \right\rrbracket}
 
 %-Exponantial / complexs
-\newcommand{\e}[1]{\mathrm{e}^{#1}}
-\newcommand{\ex}{\e{x}}
+\newcommand{\e}{\mathrm{e}}
 \newcommand{\cj}[1]{\overline{#1}} %overline for the conjugate.
 
 %-Vectors
@@ -173,6 +174,11 @@
 \newcommand{\lr}[1]{\left( #1 \right)}
 \newcommand{\lrb}[1]{\left[ #1 \right]}
 
+\newcommand{\lrangle}[1]{\left\langle #1 \right\rangle}
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
 
 %------commands
 %---to quote french text
@@ -186,8 +192,7 @@
 
 %---to indent a text
 \newcommand{\indented}[2][20pt]{\par \ind[#1] #2 \par \deind[#1]}
-\newenvironment{indentedenv}[1][20pt]{\par \ind[#1]}{\par \deind}
-\newenvironment{indt}[2][20pt]{#2 \begin{indentedenv}[#1]}{\end{indentedenv}} %Titled indented env
+\newenvironment{indt}[2][20pt]{#2 \par \ind[#1]}{\par \deind} %Titled indented env
 
 %---title
 \newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\emph{#1} :}} {\Large #2}}\end{center}}
@@ -202,13 +207,6 @@
 \newcommand{\subsubpart}[2][$\!\!$]{\underline{\textsl{#1} #2}}
 %-a
 \newcommand{\subsubsubpart}[2][$\!\!$]{\underline{\it #1 #2}}
-
-%math part
-\newcommand{\secpart}[1]{.\underline{\it #1 :}}
-
-\newenvironment{mathdef}[2][20pt]{
-    \secpart{#2} \begin{indentedenv}[#1]}
-    {\end{indentedenv}}
 
 
 %------page style
@@ -228,7 +226,7 @@
 
 
 %------init lengths
-\setlength{\parindent}{0pt} %no \noindent needed !!!
+\setlength{\parindent}{0pt} %To avoid using \noindent everywhere.
 \setlength{\parskip}{3pt}
 
 
