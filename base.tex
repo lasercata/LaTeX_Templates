@@ -5,7 +5,7 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2020.11.25
+% Last modification     :   2020.12.29
 % Version               :   3.2
 %
 %------------------------------------------------------------------------
@@ -54,6 +54,7 @@
 %---Commands
 \newcommand{\link}[2]{\mathrm{#1} \! - \! \mathrm{#2}}
 \newcommand{\pt}[1]{\cdot 10^{#1}} % Power of ten
+\newcommand{\dt}[2][t]{\dfrac{d#2}{d#1}} % Derivative
 
 
 %------math
@@ -98,6 +99,8 @@
 
 \newcommand{\med}[2]{\mathrm{med} \left[ #1\ ;\ #2 \right]}  %$\med{A}{B} -> med[A ; B]$
 \newcommand{\Circ}[2]{\mathscr{C}_{#1, #2}}
+
+\newcommand{\lr}[1]{\left( #1 \right)}
 
 
 %------commands
