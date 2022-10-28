@@ -1,0 +1,55 @@
+\documentclass[a4paper, 12pt, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[french]{babel}
+%\usepackage[english]{babel}
+
+%---geometry
+\usepackage[textheight=700pt, textwidth=500pt]{geometry}
+
+%---pictures
+\usepackage{graphicx}
+
+%---math
+%\usepackage{textcomp}
+%\usepackage{amsmath}
+
+%---tabular
+%\usepackage{color}
+%\usepackage{colortbl}
+%\usepackage{multirow}
+
+%---color
+\usepackage{xcolor}
+\definecolor{ff4500}{HTML}{ff4500}
+\definecolor{00f}{HTML}{0000ff}
+
+\renewcommand{\emph}{\textcolor{ff4500}}
+
+%---page style
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{18pt}
+\setlength{\footskip}{50pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE, RO]{\textit{\today}}
+\fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
+
+\fancyfoot[LO, RE]{\textit{\texttt{Page \thepage /\pageref{LastPage}}}}
+\fancyfoot[RO, LE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
+
+
+
+\begin{document}
+    \setlength{\parskip}{3pt}
+
+    \begin{center}\textbf{{\Large \underline{\emph{Titre} :}} {\large Voici le titre}}\end{center}
+ 
+    \newpage
+    .Aa
+    
+\end{document}
