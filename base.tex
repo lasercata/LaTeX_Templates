@@ -2,11 +2,11 @@
 
 
 %------------------------------------------------------------------------
-% This is a LaTeX template, with some usefull commands and environment.
+% This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2020.10.12
-% Version               :   3.1
+% Last modification     :   2020.11.25
+% Version               :   3.2
 %
 %------------------------------------------------------------------------
 
@@ -47,25 +47,57 @@
 %\usepackage{multirow}
 
 
+%------Physics
+%---Packages
+%\usepackage[version=4]{mhchem} %$\ce{NO4^2-}$
+
+%---Commands
+\newcommand{\link}[2]{\mathrm{#1} \! - \! \mathrm{#2}}
+\newcommand{\pt}[1]{\cdot 10^{#1}} % Power of ten
+
+
 %------math
-%---packages
+%---Packages
 %\usepackage{textcomp}
 %\usepackage{amsmath}
-%\usepackage{amssymb}
+\usepackage{amssymb}
 \usepackage{mathtools} % For abs
-%\usepackage{mathrsfs} %\mathscr{C} -> better than \marthcal
+\usepackage{stmaryrd} %for \llbracket and \rrbracket
+\usepackage{mathrsfs} %for \mathscr{x} (different from \mathcal{x})
 
-%---commands
-\newcommand{\R}{\mathbb{R}} %set R
+%---Commands
+%-Sets
 \newcommand{\N}{\mathbb{N}} %set N
-\newcommand{\e}[1]{\mathrm{e}^{#1}} %exponantial function
+\newcommand{\R}{\mathbb{R}} %set R
+\newcommand{\C}{\mathbb{C}} %set C
+\newcommand{\U}{\mathbb{U}} %set U
+\newcommand{\set}[2]{\left[ #1\ ;\ #2 \right]}
+\newcommand{\nset}[2]{\left\llbracket #1\ ;\ #2 \right\rrbracket}
+
+%-Exponantial / complexs
+\newcommand{\e}[1]{\mathrm{e}^{#1}}
 \newcommand{\ex}{\e{x}}
-\newcommand{\ssi}{\ \Leftrightarrow \ }
-\DeclarePairedDelimiter\abs{\lvert}{\rvert} % abs{x} -> |x|
+\newcommand{\eit}{\e{i\theta}}
+\newcommand{\cj}[1]{\overline{#1}} %overline for the conjugate.
+\newcommand{\cjz}{\cj{z}} %conjugate of z
+
+%-Vectors
 \newcommand{\vect}{\overrightarrow}
-\newcommand{\veco}[3]{\displaystyle \vec{#1}\binom{#2}{#3}} %vector + coord
+\newcommand{\veco}[3]{\displaystyle \vect{#1}\binom{#2}{#3}} %vector + coord
+
+%-Limits
+\newcommand{\lm}[2][{}]{\lim\limits_{\substack{#2 \\ #1}}} %$\lm{x \to a} f$ or $\lm[x < a]{x \to a} f$
+\newcommand{\Lm}[3][{}]{\lm[#1]{#2} \left( #3 \right)} %$\Lm{x \to a}{f}$ or $\Lm[x < a]{x \to a}{f}$
+
+%-Others
+\newcommand{\trig}[2]{#1 \left( #2 \right)} %$\trig{\sin}{\dfrac a b}$
 \newcommand{\para}{\ /\!/\ } %//
+\newcommand{\ssi}{\ \Leftrightarrow \ }
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} % abs{x} -> |x|
 \newcommand{\eqsys}[2]{\begin{cases} #1 \\ #2 \end{cases}}
+
+\newcommand{\med}[2]{\mathrm{med} \left[ #1\ ;\ #2 \right]}  %$\med{A}{B} -> med[A ; B]$
+\newcommand{\Circ}[2]{\mathscr{C}_{#1, #2}}
 
 
 %------commands
@@ -118,7 +150,6 @@
 \fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
 
 \fancyfoot[RO, LE]{\textit{\texttt{Page \thepage /\pageref{LastPage}}}}
-%\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/mieux/lasercata_logo_fly_fond_blanc.png}}
 \fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
 
 
@@ -130,27 +161,15 @@
 %-----------------------------------Begin Document
 \begin{document}
 
-    \thetitle{Title}{This is the title}
+    \thetitle{Title}{This is the title}    
     
     
-    %------------------------------------------Exemples
-%     \begin{indt}{\mainpart[I)]{Main part}}
-%         \begin{indt}{\subpart[A)]{Sub part}}
-%             \begin{indt}{\subsubpart[1)]{Sub sub part}}
-%                 \begin{indt}{\subsubsubpart[a)]{Sub sub sub part}}
-%                     .Paragraph
-%                 \end{indt}
-%             \end{indt}
-%         \end{indt}
-%     \end{indt}
-%     
-%     \begin{mathdef}{Propriété}
-%         .$ax^ + bx + c = 0 \Leftrightarrow x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-%     \end{mathdef}
-    %------------------------------------------End exemples
+    \begin{indt}{\bmainpart[I)]{Part 1 :}}
+        
+        .a
+        
+    \end{indt}
     
-    
-    .Aa
     
 \end{document}
 %--------------------------------------------End
