@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2021.12.20
-% Version               :   v4.2
+% Last modification     :   2022.02.05
+% Version               :   v4.3
 %
 %------------------------------------------------------------------------
 
@@ -143,8 +143,12 @@
 \newcommand{\R}{\mathbb{R}} %set R
 \newcommand{\C}{\mathbb{C}} %set C
 \newcommand{\U}{\mathbb{U}} %set U
-\newcommand{\set}[2]{\left[ #1\ ;\ #2 \right]}
+\newcommand{\seg}[2]{\left[ #1\ ;\ #2 \right]}
 \newcommand{\nset}[2]{\left\llbracket #1\ ;\ #2 \right\rrbracket}
+
+\newcommand{\lr}[1]{\left( #1 \right)}
+\newcommand{\lrb}[1]{\left[ #1 \right]}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
 
 %-Exponantial / complexs
 \newcommand{\e}{\mathrm{e}}
@@ -170,9 +174,6 @@
 
 \newcommand{\med}[2]{\mathrm{med} \left[ #1\ ;\ #2 \right]}  %$\med{A}{B} -> med[A ; B]$
 \newcommand{\Circ}[2]{\mathscr{C}_{#1, #2}}
-
-\newcommand{\lr}[1]{\left( #1 \right)}
-\newcommand{\lrb}[1]{\left[ #1 \right]}
 
 \newcommand{\lrangle}[1]{\left\langle #1 \right\rangle}
 
@@ -232,17 +233,19 @@
 
 %---------------------------------Begin Document
 \begin{document}
-
-    \thetitle{Title}{This is the title}    
+    
+    \thetitle{Title}{This is the title}
+    
+    %\tableofcontents
+    %\newpage
     
     
-    \begin{indt}{\bmainpart[I)]{Part 1 :}}
+    \begin{indt}{\section{First part :}}
         
         .a
         
     \end{indt}
     
-
     
     
 \end{document}
