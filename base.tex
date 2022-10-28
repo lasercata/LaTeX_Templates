@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2022.09.03
-% Version               :   v4.8
+% Last modification     :   2022.09.24
+% Version               :   v5.0
 %
 %------------------------------------------------------------------------
 
@@ -29,8 +29,10 @@
 \definecolor{0ff}{HTML}{00ffff}
 \definecolor{656565}{HTML}{656565}
 
-\renewcommand{\emph}{\textcolor{ff4500}}
-\renewcommand{\em}{\color{ff4500}}
+%\renewcommand{\emph}{\textcolor{ff4500}}
+%\renewcommand{\em}{\color{ff4500}}
+
+\newcommand{\Emph}{\textcolor{ff4500}}
 
 \newcommand{\strong}[1]{\textcolor{ff4500}{\bf #1}}
 \newcommand{\st}{\color{ff4500}\bf}
@@ -91,11 +93,38 @@
 
 %\lstset{style=DarkCodeStyle}
 \lstset{style=LightCodeStyle}
-%Usage : \begin{lstlisting}[language=Caml] ... \end{lstlisting}
+%Usage : \begin{lstlisting}[language=Caml, xleftmargin=xpt] ... \end{lstlisting}
+
+
+%---Algorithm
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\SetKwProg{Fn}{Function}{:}{}
+\SetKw{KwPrint}{Print}
+
+\newcommand\commfont[1]{\textsl{\textcolor{656565}{#1}}}
+\SetCommentSty{commfont}
+\SetProgSty{texttt}
+\SetArgSty{textnormal}
+\SetFuncArgSty{textnormal}
+%\SetProgArgSty{texttt}
+
+\newenvironment{indalgo}[2][H]{
+    \begin{minipage}{\linewidth-\leftskip-5pt}
+        \begin{algorithm}[#1]
+            \caption{#2}
+}
+{
+        \end{algorithm}
+    \end{minipage}
+}
+
 
 %---tcolorbox
 \usepackage[many]{tcolorbox}
-\DeclareTColorBox{pseudocode}{O{black}O{lightwhite}}{
+\DeclareTColorBox{emphBox}{O{black}O{lightwhite}}{
     breakable,
     outer arc=0pt,
     arc=0pt,
@@ -121,14 +150,6 @@
     linkcolor=black,
     urlcolor=black
 }
-%Uncomment this and comment above for dark mode
-% \hypersetup{
-%     colorlinks,
-%     citecolor=white,
-%     filecolor=white,
-%     linkcolor=white,
-%     urlcolor=white
-% }
 
 
 %------pictures
@@ -218,7 +239,7 @@
 
 
 %------commands
-%---to quote french text
+%---to quote
 \newcommand{\simplecit}[1]{\guillemotleft$\;$#1$\;$\guillemotright}
 \newcommand{\cit}[1]{\simplecit{\textcolor{656565}{#1}}}
 \newcommand{\quo}[1]{\cit{\it #1}}
@@ -232,27 +253,26 @@
 \newenvironment{indt}[2][20pt]{#2 \par \ind[#1]}{\par \deind} %Titled indented env
 
 %---title
-\newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\emph{#1} :}} {\Large #2}}\end{center}}
+\newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\Emph{#1} :}} {\Large #2}}\end{center}}
 
 %---Maths environments
 %-Proofs
 \newenvironment{proof}[1][{}]{\begin{indt}{$\square$ #1}}{$\blacksquare$ \end{indt}}
 
 %-Maths parts (proposition, definition, ...)
-\newenvironment{mathspart}[1]{\begin{indt}{\boxed{\text{\textbf{#1}}}}}{\end{indt}}
-\newenvironment{mathbox}[1]{\boxed{\text{\textbf{#1}}}\begin{pseudocode}}{\end{pseudocode}}
+\newenvironment{mathpart}[1]{\begin{indt}{\boxed{\text{\textbf{#1}}}}}{\end{indt}}
+\newenvironment{mathbox}[1]{\boxed{\text{\textbf{#1}}}\begin{emphBox}}{\end{emphBox}}
 \newenvironment{mathul}[1]{\begin{indt}{\underline{\textbf{#1}}}}{\end{indt}}
 
-\newenvironment{theo}{\begin{mathspart}{Théorème}}{\end{mathspart}}
+\newenvironment{theo}{\begin{mathpart}{Théorème}}{\end{mathpart}}
 \newenvironment{Theo}{\begin{mathbox}{Théorème}}{\end{mathbox}}
-\newenvironment{theodef}{\begin{mathspart}{Théorème-définition}}{\end{mathspart}}
 
-\newenvironment{prop}{\begin{mathspart}{Proposition}}{\end{mathspart}}
+\newenvironment{prop}{\begin{mathpart}{Proposition}}{\end{mathpart}}
 \newenvironment{Prop}{\begin{mathbox}{Proposition}}{\end{mathbox}}
-\newenvironment{props}{\begin{mathspart}{Propriétés}}{\end{mathspart}}
+\newenvironment{props}{\begin{mathpart}{Propriétés}}{\end{mathpart}}
 
-\newenvironment{defi}{\begin{mathspart}{Définition}}{\end{mathspart}}
-\newenvironment{meth}{\begin{mathspart}{Méthode}}{\end{mathspart}}
+\newenvironment{defi}{\begin{mathpart}{Définition}}{\end{mathpart}}
+\newenvironment{meth}{\begin{mathpart}{Méthode}}{\end{mathpart}}
 
 \newenvironment{Rq}{\begin{mathul}{Remarque :}}{\end{mathul}}
 \newenvironment{Rqs}{\begin{mathul}{Remarques :}}{\end{mathul}}
@@ -281,13 +301,10 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE, RO]{\textit{\textcolor{black}{\today}}}
-\fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
+\fancyhead[RE, LO]{\large{\textsl{\Emph{\texttt{\jobname}}}}}
 
-\fancyfoot[RO, LE]{\textit{\texttt{\textcolor{black}{Page \thepage /}\pageref{LastPage}}}} %Change 'black' to 'white' for dark mode
+\fancyfoot[RO, LE]{\textit{\texttt{\textcolor{black}{Page \thepage /}\pageref{LastPage}}}}
 \fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
-
-% For dark mode :
-%/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly.png
 
 
 %------init lengths
@@ -298,21 +315,14 @@
 %---------------------------------Begin Document
 \begin{document}
     
-    %For dark mode :
-    % \pagecolor{black}
-    % \color{white}
-    
     \thetitle{}{}
     
     %\tableofcontents
     %\newpage
     
-    
     \begin{indt}{\section{}}
         .a
     \end{indt}
-    
-    
     
 \end{document}
 %--------------------------------------------End
