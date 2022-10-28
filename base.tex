@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2022.03.12
-% Version               :   v4.5
+% Last modification     :   2022.03.26
+% Version               :   v4.6
 %
 %------------------------------------------------------------------------
 
@@ -37,6 +37,7 @@
 
 
 %------Code highlighting
+%---listings
 \usepackage{listings}
 
 \definecolor{cbg}{HTML}{272822}
@@ -90,8 +91,25 @@
 
 %\lstset{style=DarkCodeStyle}
 \lstset{style=LightCodeStyle}
-
 %Usage : \begin{lstlisting}[language=Caml] ... \end{lstlisting}
+
+%---tcolorbox
+\usepackage[many]{tcolorbox}
+\DeclareTColorBox{pseudocode}{O{black}O{lightwhite}}{
+    breakable,
+    outer arc=0pt,
+    arc=0pt,
+    top=0pt,
+    toprule=-.5pt,
+    right=0pt,
+    rightrule=-.5pt,
+    bottom=0pt,
+    bottomrule=-.5pt,
+    colframe=#1,
+    colback=#2,
+    enlarge left by=10pt,
+    width=\linewidth-\leftskip-10pt,
+}
 
 
 %-------make the table of content clickable
@@ -134,7 +152,7 @@
 %---Commands
 \newcommand{\link}[2]{\mathrm{#1} \! - \! \mathrm{#2}}
 \newcommand{\pt}[1]{\cdot 10^{#1}} % Power of ten
-\newcommand{\dt}[2][t]{\dfrac{\mathrm d #2}{\mathcal d #1}} % Derivative
+\newcommand{\dt}[2][t]{\dfrac{\mathrm d #2}{\mathrm d #1}} % Derivative
 
 
 %------math
@@ -177,9 +195,9 @@
 \newcommand{\lr}[1]{\left( #1 \right)}
 \newcommand{\lrb}[1]{\left[ #1 \right]}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} % abs{x} -> |x|
-\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\lrangle}[1]{\left\langle #1 \right\rangle}
 
 %-Others
@@ -211,16 +229,15 @@
 %---title
 \newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\emph{#1} :}} {\Large #2}}\end{center}}
 
-%---parts
-%-I
-\newcommand{\mainpart}[2][$\!\!$]{\underline{\large \textbf{\emph{\textit{#1} #2}}}}
-\newcommand{\bmainpart}[2][$\!\!$]{\underline{\large \textbf{\textit{#1} #2}}}
-%-A
-\newcommand{\subpart}[2][$\!\!$]{\underline{\bf \textit{#1} #2}}
-%-1
-\newcommand{\subsubpart}[2][$\!\!$]{\underline{\textsl{#1} #2}}
-%-a
-\newcommand{\subsubsubpart}[2][$\!\!$]{\underline{\it #1 #2}}
+
+%------Sections
+% To change section numbering :
+% \renewcommand\thesection{\Roman{section}}
+% \renewcommand\thesubsection{\arabic{subsection}}
+% \renewcommand\thesubsubsection{\aleph{subsection}}
+
+% To start numbering from 0
+% \setcounter{section}{-1}
 
 
 %------page style
@@ -232,7 +249,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE, RO]{\textit{\today}}
+\fancyhead[LE, RO]{\textit{\textcolor{black}{\today}}}
 \fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
 
 \fancyfoot[RO, LE]{\textit{\texttt{\textcolor{black}{Page \thepage /}\pageref{LastPage}}}} %Change 'black' to 'white' for dark mode
