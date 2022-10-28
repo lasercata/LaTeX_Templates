@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2022.03.26
-% Version               :   v4.6
+% Last modification     :   2022.04.18
+% Version               :   v4.7
 %
 %------------------------------------------------------------------------
 
@@ -136,7 +136,9 @@
 %\usepackage{wrapfig}
 
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric}
+%\usetikzlibrary{babel}             %Uncomment this to use circuitikz
+%\usetikzlibrary{shapes.geometric}  % To draw triangles in trees
+%\usepackage{circuitikz}            %Electrical circuits drawing
 
 
 %------tabular
@@ -194,6 +196,7 @@
 %-left right
 \newcommand{\lr}[1]{\left( #1 \right)}
 \newcommand{\lrb}[1]{\left[ #1 \right]}
+\newcommand{\lrbb}[1]{\left\llbracket #1 \right\rrbracket}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
@@ -210,6 +213,8 @@
 
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
+
+\newcommand{\oboxed}[1]{\textcolor{ff4500}{\boxed{\textcolor{black}{#1}}}} %orange boxed
 
 
 %------commands
@@ -234,7 +239,7 @@
 % To change section numbering :
 % \renewcommand\thesection{\Roman{section}}
 % \renewcommand\thesubsection{\arabic{subsection}}
-% \renewcommand\thesubsubsection{\aleph{subsection}}
+% \renewcommand\thesubsubsection{\textit \alph{subsubsection}}
 
 % To start numbering from 0
 % \setcounter{section}{-1}
