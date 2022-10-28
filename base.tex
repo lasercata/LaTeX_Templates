@@ -5,8 +5,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2022.03.03
-% Version               :   v4.4
+% Last modification     :   2022.03.12
+% Version               :   v4.5
 %
 %------------------------------------------------------------------------
 
@@ -103,11 +103,22 @@
     linkcolor=black,
     urlcolor=black
 }
+%Uncomment this and comment above for dark mode
+% \hypersetup{
+%     colorlinks,
+%     citecolor=white,
+%     filecolor=white,
+%     linkcolor=white,
+%     urlcolor=white
+% }
 
 
 %------pictures
 \usepackage{graphicx}
 %\usepackage{wrapfig}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
 
 
 %------tabular
@@ -123,7 +134,7 @@
 %---Commands
 \newcommand{\link}[2]{\mathrm{#1} \! - \! \mathrm{#2}}
 \newcommand{\pt}[1]{\cdot 10^{#1}} % Power of ten
-\newcommand{\dt}[2][t]{\dfrac{d#2}{d#1}} % Derivative
+\newcommand{\dt}[2][t]{\dfrac{\mathrm d #2}{\mathcal d #1}} % Derivative
 
 
 %------math
@@ -224,8 +235,11 @@
 \fancyhead[LE, RO]{\textit{\today}}
 \fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
 
-\fancyfoot[RO, LE]{\textit{\texttt{Page \thepage /\pageref{LastPage}}}}
+\fancyfoot[RO, LE]{\textit{\texttt{\textcolor{black}{Page \thepage /}\pageref{LastPage}}}} %Change 'black' to 'white' for dark mode
 \fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
+
+% For dark mode :
+%/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly.png
 
 
 %------init lengths
@@ -235,6 +249,10 @@
 
 %---------------------------------Begin Document
 \begin{document}
+    
+    %For dark mode :
+    % \pagecolor{black}
+    % \color{white}
     
     \thetitle{Title}{This is the title}
     
