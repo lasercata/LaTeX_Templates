@@ -1,6 +1,16 @@
 \documentclass[a4paper, 12pt, twoside]{article}
 
 
+%------------------------------------------------------------------------
+% This is a LaTeX template, with some usefull commands and environment.
+%
+% Author                :   Lasercata
+% Last modification     :   2020.06.14
+% Version               :   3.0
+%
+%------------------------------------------------------------------------
+
+
 %------ini
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -12,9 +22,29 @@
 \usepackage[textheight=700pt, textwidth=500pt]{geometry}
 
 
+%------color
+\usepackage{xcolor}
+\definecolor{ff4500}{HTML}{ff4500}
+\definecolor{00f}{HTML}{0000ff}
+\definecolor{0ff}{HTML}{00ffff}
+\definecolor{656565}{HTML}{656565}
+
+\renewcommand{\emph}{\textcolor{ff4500}}
+\renewcommand{\em}{\color{ff4500}}
+
+\newcommand{\strong}[1]{\textcolor{ff4500}{\bf #1}}
+\newcommand{\st}{\color{ff4500}\bf}
+
+
 %------pictures
 \usepackage{graphicx}
 %\usepackage{wrapfig}
+
+
+%------tabular
+%\usepackage{color}
+%\usepackage{colortbl}
+%\usepackage{multirow}
 
 
 %------math
@@ -25,32 +55,19 @@
 \usepackage{mathtools} % For abs
 
 %---commands
-\newcommand{\R}{\mathbb{R}}
+\newcommand{\R}{\mathbb{R}} %set R
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % abs{x} -> |x|
-
-
-%------tabular
-%\usepackage{color}
-%\usepackage{colortbl}
-%\usepackage{multirow}
-
-
-%------color
-\usepackage{xcolor}
-\definecolor{ff4500}{HTML}{ff4500}
-\definecolor{00f}{HTML}{0000ff}
-\definecolor{656565}{HTML}{656565}
-
-\renewcommand{\emph}{\textcolor{ff4500}}
-\renewcommand{\em}{\color{ff4500}}
-
-\newcommand{\strong}[1]{\textcolor{ff4500}{\bf #1}}
-\newcommand{\st}{\color{ff4500}\bf}
+\newcommand{\vect}{\overrightarrow}
+\newcommand{\veco}[3]{\displaystyle \vec{#1}\binom{#2}{#3}} %vector + coord
+\newcommand{\para}{\ /\!/\ } %//
+\newcommand{\eqsys}[2]{\begin{cases} #1 \\ #2 \end{cases}}
 
 
 %------commands
 %---to quote french text
-\newcommand{\quo}[1]{\guillemotleft{} \textcolor{656565}{\it #1} \guillemotright}
+\newcommand{\simplecit}[1]{\guillemotleft$\;$#1$\;$\guillemotright}
+\newcommand{\cit}[1]{\simplecit{\textcolor{656565}{#1}}}
+\newcommand{\quo}[1]{\cit{\it #1}}
 
 %---to indent
 \newcommand{\ind}[1][20pt]{\advance\leftskip + #1}
@@ -59,16 +76,28 @@
 %---to indent a text
 \newcommand{\indented}[2][20pt]{\par \ind[#1] #2 \par \deind[#1]}
 \newenvironment{indentedenv}[1][20pt]{\par \ind[#1]}{\par \deind}
+\newenvironment{indt}[2][20pt]{#2 \begin{indentedenv}[#1]}{\end{indentedenv}} %Titled indented env
 
 %---title
-\newcommand{\thetitle}[2]{\begin{center}\textbf{{\Large \underline{\emph{#1} :}} {\large #2}}\end{center}}
+\newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\emph{#1} :}} {\Large #2}}\end{center}}
 
+%---parts
 %-I
-\newcommand{\mainpart}[2]{\underline{\large \textbf{\emph{\textit{#1)} #2}}}}
+\newcommand{\mainpart}[2][$\!\!$]{\underline{\large \textbf{\emph{\textit{#1} #2}}}}
+\newcommand{\bmainpart}[2][$\!\!$]{\underline{\large \textbf{\textit{#1} #2}}}
 %-A
-\newcommand{\subpart}[2]{.\underline{\bf \textit{#1)} #2}}
+\newcommand{\subpart}[2][$\!\!$]{.\underline{\bf \textit{#1} #2}}
 %-1
-\newcommand{\subsubpart}[2]{.\underline{\sl #1) #2}}
+\newcommand{\subsubpart}[2][$\!\!$]{.\underline{\textsl{#1} #2}}
+%-a
+\newcommand{\subsubsubpart}[2][$\!\!$]{.\underline{\it #1 #2}}
+
+%math part
+\newcommand{\secpart}[1]{.\underline{\it #1 :}}
+
+\newenvironment{mathdef}[2][20pt]{
+    \secpart{#2} \begin{indentedenv}[#1]}
+    {\end{indentedenv}}
 
 
 %------page style
@@ -83,8 +112,9 @@
 \fancyhead[LE, RO]{\textit{\today}}
 \fancyhead[RE, LO]{\large{\textsl{\emph{\texttt{\jobname}}}}}
 
-\fancyfoot[LO, RE]{\textit{\texttt{Page \thepage /\pageref{LastPage}}}}
-\fancyfoot[RO, LE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
+\fancyfoot[RO, LE]{\textit{\texttt{Page \thepage /\pageref{LastPage}}}}
+\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/mieux/lasercata_logo_fly_fond_blanc.png}}
+%\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
 
 
 %------init lengths
@@ -95,17 +125,25 @@
 %-----------------------------------Begin Document
 \begin{document}
 
-    \thetitle{Titre}{Voici le titre}
+    \thetitle{Title}{This is the title}
     
     
-%     \mainpart{I}{Main part}
+    %------------------------------------------Exemples
+%     \begin{indt}{\mainpart[I)]{Main part}}
+%         \begin{indt}{\subpart[A)]{Sub part}}
+%             \begin{indt}{\subsubpart[1)]{Sub sub part}}
+%                 \begin{indt}{\subsubsubpart[a)]{Sub sub sub part}}
+%                     .Paragraph
+%                 \end{indt}
+%             \end{indt}
+%         \end{indt}
+%     \end{indt}
 %     
-%     	\ind
-%     	\subpart{A}{sub part}
-%     	
-%     		\ind
-%     		\subsubpart{1}{sub sub part}
-
+%     \begin{mathdef}{Propriété}
+%         .$ax^ + bx + c = 0 \Leftrightarrow x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+%     \end{mathdef}
+    %------------------------------------------End exemples
+    
     
     .Aa
     
