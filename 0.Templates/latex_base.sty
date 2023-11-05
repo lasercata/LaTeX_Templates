@@ -2,8 +2,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2023.09.21
-% Version               :   v6.0.1
+% Last modification     :   2023.11.05
+% Version               :   v6.0.2
 %
 %------------------------------------------------------------------------
 
@@ -11,8 +11,6 @@
 %------ini
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%\usepackage[french]{babel}
-%\usepackage[english]{babel}
 
 
 %------geometry
@@ -25,9 +23,6 @@
 \definecolor{00f}{HTML}{0000ff}
 \definecolor{0ff}{HTML}{00ffff}
 \definecolor{656565}{HTML}{656565}
-
-%\renewcommand{\emph}{\textcolor{ff4500}}
-%\renewcommand{\em}{\color{ff4500}}
 
 \newcommand{\Emph}{\textcolor{ff4500}}
 
@@ -121,6 +116,7 @@
 
 %---tcolorbox
 \usepackage[many]{tcolorbox}
+
 \DeclareTColorBox{emphBox}{O{black}O{lightwhite}}{
     breakable,
     outer arc=0pt,
@@ -245,6 +241,15 @@
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\lrangle}[1]{\left\langle #1 \right\rangle}
 
+%-Boxes
+\newcommand{\oboxed}[1]{\textcolor{ff4500}{\boxed{\textcolor{black}{#1}}}} %orange boxed
+
+\newcommand{\rboxed}[1]{\begin{array}{|c} \hline #1 \\ \hline \end{array}} %boxed with right opened
+\newcommand{\lboxed}[1]{\begin{array}{c|} \hline #1 \\ \hline \end{array}} %boxed with left opened
+
+\newcommand{\orboxed}[1]{\textcolor{ff4500}{\rboxed{\textcolor{black}{#1}}}} %orange right boxed
+\newcommand{\olboxed}[1]{\textcolor{ff4500}{\lboxed{\textcolor{black}{#1}}}} %orange left boxed
+
 %-Others
 \newcommand{\para}{/\!/} %//
 \newcommand{\ssi}{\ \Leftrightarrow \ }
@@ -255,14 +260,6 @@
 
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
-
-\newcommand{\oboxed}[1]{\textcolor{ff4500}{\boxed{\textcolor{black}{#1}}}} %orange boxed
-
-\newcommand{\rboxed}[1]{\begin{array}{|c} \hline #1 \\ \hline \end{array}} %boxed with right opened
-\newcommand{\lboxed}[1]{\begin{array}{c|} \hline #1 \\ \hline \end{array}} %boxed with left opened
-
-\newcommand{\orboxed}[1]{\textcolor{ff4500}{\rboxed{\textcolor{black}{#1}}}} %orange right boxed
-\newcommand{\olboxed}[1]{\textcolor{ff4500}{\lboxed{\textcolor{black}{#1}}}} %orange left boxed
 
 
 %------commands
@@ -308,16 +305,6 @@
 \newenvironment{Exs}{\begin{mathul}{Exemples :}}{\end{mathul}}
 
 
-%------Sections
-% To change section numbering :
-% \renewcommand\thesection{\Roman{section}}
-% \renewcommand\thesubsection{\arabic{subsection})}
-% \renewcommand\thesubsubsection{\textit \alph{subsubsection})}
-
-% To start numbering from 0
-% \setcounter{section}{-1}
-
-
 %------page style
 \usepackage{fancyhdr}
 \usepackage{lastpage}
@@ -331,7 +318,8 @@
 \fancyhead[RE, LO]{\large{\textsl{\Emph{\texttt{\jobname}}}}}
 
 \fancyfoot[RO, LE]{\textit{\texttt{\textcolor{black}{Page \thepage /}\pageref{LastPage}}}}
-\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
+% \fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}
+\newcommand{\setlogo}{\fancyfoot[LO, RE]{\includegraphics[scale=0.12]{/home/lasercata/Pictures/1.images_profil/logo/mieux/lasercata_logo_fly_fond_blanc.png}}}
 
 
 %------init lengths
