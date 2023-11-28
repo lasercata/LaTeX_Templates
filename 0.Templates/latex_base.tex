@@ -4,7 +4,7 @@
 %------------------------------------------------------------------------
 %
 % Author                :   Lasercata
-% Last modification     :   2023.11.05
+% Last modification     :   2023.11.28
 %
 %------------------------------------------------------------------------
 
@@ -17,23 +17,42 @@
 \input{~/Templates/latex_base.sty}
 
 
+%------Circuitikz
+%\usetikzlibrary{babel}             %Uncomment this to use circuitikz
+%\usetikzlibrary{shapes.geometric}  % To draw triangles in trees
+%\usepackage[european]{circuitikz}            %Electrical circuits drawing
+
 %------Sections
-% To change section numbering :
+%---To change section numbering :
 % \renewcommand\thesection{\Roman{section}}
 % \renewcommand\thesubsection{\arabic{subsection})}
 % \renewcommand\thesubsubsection{\textit \alph{subsubsection})}
 
-% To start numbering from 0
+%---To start numbering sections from 0
 % \setcounter{section}{-1}
 
+%---To hide subsubsection from the table of contents (show with max depth of 2)
+% \setcounter{tocdepth}{2}
+
+
+%------Logo
 \setlogo %Comment to remove the logo
+
+
+%------Title (with default LaTeX style)
+%\title{}
+%\author{}
+%\date{\today}
 
 %---------------------------------Begin Document
 \begin{document}
     
     \thetitle{}{}
+    %\maketitle
     
     %\tableofcontents
+    %\listoffigures
+    %\listoftables
     %\newpage
     
     \begin{indt}{\section{}}
