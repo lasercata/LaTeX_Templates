@@ -4,10 +4,11 @@
 %------------------------------------------------------------------------
 %
 % Author                :   Lasercata
-% Last modification     :   2023.11.28
+% Last modification     :   2024.01.24
 %
 %------------------------------------------------------------------------
 
+%---------Init {{{1
 %------Lang
 %\usepackage[french]{babel}
 %\usepackage[english]{babel}
@@ -37,7 +38,7 @@
 
 %------Logo
 \setlogo %Comment to remove the logo
-
+%}}}1
 
 %------Title (with default LaTeX style)
 %\title{}
@@ -47,6 +48,7 @@
 %---------------------------------Begin Document
 \begin{document}
     
+    % Title {{{1
     \thetitle{}{}
     %\maketitle
     
@@ -55,11 +57,13 @@
     %\listoftables
     %\listofalgorithms
     %\newpage
+    % }}}1
     
-    \begin{indt}{\section{}}
+    \begin{indt}{\section{}}% {{{1
         .a
-    \end{indt}
+    \end{indt}% }}}1
     
 \end{document}
 %--------------------------------------------End
 
+% vim:foldmethod=marker:foldlevel=0
