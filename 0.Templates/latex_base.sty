@@ -276,6 +276,17 @@
 \newcommand{\indented}[2][20pt]{\par \ind[#1] #2 \par \deind[#1]}
 \newenvironment{indt}[2][20pt]{#2 \par \ind[#1]}{\par \deind} %Titled indented env
 
+%---Indented titled itemize
+\usepackage{enumitem} % To change itemize indentation
+
+\newenvironment{indi}[2][20pt]{
+        #2
+        \vspace{-10pt}
+        \begin{itemize}[itemsep=0pt, label=$-$, leftmargin=\leftskip+#1+12pt]
+    }{
+        \end{itemize}
+    }
+
 %---title
 \newcommand{\thetitle}[2]{\begin{center}\textbf{{\LARGE \underline{\Emph{#1} :}} {\Large #2}}\end{center}}
 
