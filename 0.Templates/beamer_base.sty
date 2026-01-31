@@ -2,8 +2,8 @@
 % This is a LaTeX template, with some useful commands and environments.
 %
 % Author                :   Lasercata
-% Last modification     :   2023.10.14
-% Version               :   v6.0.1_beamer
+% Last modification     :   2026.01.31
+% Version               :   v6.0.2_beamer
 %
 %------------------------------------------------------------------------
 
@@ -11,8 +11,6 @@
 %------ini
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%\usepackage[french]{babel}
-%\usepackage[english]{babel}
 
 
 %------geometry
@@ -27,6 +25,7 @@
 \definecolor{656565}{HTML}{656565}
 % \definecolor{accent_color}{HTML}{ff4500}
 \definecolor{accent_color}{HTML}{a30000}
+% \definecolor{accent_color}{HTML}{ffbf00}
 
 %\renewcommand{\emph}{\textcolor{ff4500}}
 %\renewcommand{\em}{\color{ff4500}}
@@ -347,8 +346,23 @@
 \usepackage{multicol}
 
 
+%---------Beamer
+%------Commands
+\newcommand{\pic}[2][.7]{
+    \textcolor{accent_color}{\fbox{\includegraphics[width=#1\textwidth]{#2}}}
+}
+\newcommand{\includepic}[2][.7]{
+    \begin{center}
+        \pic[#1]{#2}
+    \end{center}
+}
+
+\newcommand{\acc}{\textcolor{accent_color}}
+
+
 %---------Beamer init
-\usetheme{Antibes}
+% \usetheme{Antibes}
+\usetheme{Madrid}
 
 \usecolortheme[named=accent_color]{structure}
 % \usecolortheme{beaver}
@@ -359,17 +373,29 @@
 {
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-            \usebeamerfont{title in head/foot}\inserttitle
+        \begin{beamercolorbox}[wd=.55\paperwidth, ht=2.25ex, dp=1ex, center]{author in head/foot}%
+            % \usebeamerfont{author in head/foot}\insertshorttitle{}
+            \usebeamerfont{author in head/foot}\inserttitle{}
+            ---
+            \usebeamerfont{date in head/foot}\insertdate
+            % \usebeamerfont{title in head/foot}\insertauthor
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth, ht=2.25ex, dp=1ex, right]{date in head/foot}%
-            \usebeamerfont{date in head/foot}
-            \insertframenumber{}\hspace*{2ex} 
-            % \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+        \begin{beamercolorbox}[wd=.3\paperwidth, ht=2.25ex, dp=1ex, center]{date in head/foot}%
+            % \usebeamerfont{date in head/foot}\insertdate
+            % \usebeamerfont{author in head/foot}\insertshortauthor
+            \usebeamerfont{author in head/foot}\insertauthor
+            % \usebeamerfont{date in head/foot}\inserttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.15\paperwidth, ht=2.25ex, dp=1ex, right]{author in head/foot}%
+            \usebeamerfont{author in head/foot}
+            % \insertframenumber{}\hspace*{2ex} 
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
     \end{beamercolorbox}}%
     \vskip0pt%
 }
 \makeatother
+
+\addtobeamertemplate{footline}{\hypersetup{allcolors=.}}{}
 
 %Automatically show the table of contents before each subsection changement. 
 \AtBeginSubsection[]{

@@ -1,0 +1,85 @@
+\documentclass{beamer}
+
+%------------------------------------------------------------------------
+%
+% Author                :   Lasercata
+% Last modification     :   2026.01.31
+%
+%------------------------------------------------------------------------
+
+% Init {{{1
+%------Lang
+%\usepackage[french]{babel}
+%\usepackage[english]{babel}
+
+%------Base import
+%See https://github.com/lasercata/LaTeX_Templates for the file beamer_base.sty
+\input{style/beamer_base.sty}
+% }}}1
+
+% Title {{{1
+% \title[]{}
+% \author[]{}
+
+\title{}
+\author{}
+\date{\today}
+% }}}1
+
+%---------------------------------Begin Document
+\begin{document}
+    { % Title page {{{1
+        \setbeamertemplate{footline}{}
+        \frame[noframenumbering]{\titlepage}
+    } % }}}1
+    
+    \section*{Introduction}
+    %=====================%
+
+    \begin{frame}{Introduction}% {{{1
+        .a
+    \end{frame}% }}}1
+
+    \begin{frame}{Table of contents}% {{{1
+        \begin{multicols}{2}
+            \tableofcontents
+        \end{multicols}
+    \end{frame}% }}}1
+
+    \section{sec1}
+    %============%
+
+    {% This is just to display the recall to the plan at the section change as there is no subsection {{{1
+        \setbeamertemplate{footline}{}
+        \begin{frame}[noframenumbering]{Plan}
+            \begin{multicols}{2}
+                \tableofcontents[currentsection, currentsubsection]
+            \end{multicols}
+        \end{frame}
+    }% }}}1
+
+    \begin{frame}{}% {{{1
+        .a
+    \end{frame}% }}}1
+
+    \section*{Conclusion}
+    %===================%
+
+    \begin{frame}{Conclusion}% {{{
+        .a
+    \end{frame}% }}}
+
+    { % Thank you for your attention {{{1
+        \setbeamertemplate{footline}{}
+        \begin{frame}
+            \begin{center}
+                {\Large{\bf Thank you for your attention}}
+            \end{center}
+        \end{frame}
+    }% }}}1
+
+\end{document}
+%--------------------------------------------End
+
+% vim:foldmethod=marker:foldlevel=0
+
